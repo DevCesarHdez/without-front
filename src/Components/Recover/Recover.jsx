@@ -65,17 +65,8 @@ export default function Recover() {
             </Grid>
           </Box>
           <Divider sx={{ margin: "1.6em 0" }} />
-          <Button fullWidth color="info" variant="outlined">
-            <Link
-              to="/login"
-              style={{
-                color: "inherit",
-                textDecoration: "none",
-                width: "100%"
-              }}
-            >
-              Iniciar sesión
-            </Link>
+          <Button to="/login" fullWidth component={Link} variant="outlined">
+            Iniciar sesión
           </Button>
         </Grid>
       </Grid>

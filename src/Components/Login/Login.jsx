@@ -67,17 +67,8 @@ export default function Login() {
             </Grid>
           </Box>
           <Divider sx={{ margin: "1.6em 0" }} />
-          <Button color="info" fullWidth variant="text">
-            <Link
-              to="/signup"
-              style={{
-                color: "inherit",
-                textDecoration: "none",
-                width: "100%"
-              }}
-            >
-              Crear cuenta
-            </Link>
+          <Button fullWidth component={Link} to="/signup" variant="outlined">
+            Crear cuenta
           </Button>
         </Grid>
       </Grid>

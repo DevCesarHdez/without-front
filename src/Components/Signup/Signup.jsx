@@ -89,17 +89,8 @@ export default function App() {
             </Grid>
           </Box>
           <Divider sx={{ margin: "1.6em 0" }} />
-          <Button color="info" fullWidth variant="text">
-            <Link
-              to="/login"
-              style={{
-                color: "inherit",
-                textDecoration: "none",
-                width: "100%"
-              }}
-            >
-              Iniciar sesión
-            </Link>
+          <Button to="/login" fullWidth variant="outlined" component={Link}>
+            Iniciar sesión
           </Button>
         </Grid>
       </Grid>
