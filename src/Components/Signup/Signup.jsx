@@ -12,12 +12,21 @@ import {
   Checkbox
 } from "@mui/material";
 import { Link, useSearchParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { SnackbarContext } from "../../Context/SnackbarContext/SnackbarContext";
 
 export default function App() {
-  let [params, setParams] = useSearchParams();
+  const [params, setParams] = useSearchParams();
   const [id, setID] = useState(params.get("id"));
   const [email, setEmail] = useState(params.get("email"));
+  const { setOpen, setMsg, setSeverity } = useContext(SnackbarContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setMsg("Servicio no disponible por el momento.");
+    setSeverity("error");
+    setOpen(true);
+  };
 
   return (
     <Container>
@@ -38,7 +47,7 @@ export default function App() {
           >
             without
           </Typography>
-          <Box component="form">
+          <Box component="form" onSubmit={handleSubmit}>
             <Grid container rowSpacing={3}>
               <Grid item xs={12}>
                 <Typography component="h2" fontSize="24px" fontWeight="medium">

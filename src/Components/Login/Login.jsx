@@ -11,8 +11,19 @@ import {
   Divider
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import { SnackbarContext } from "../../Context/SnackbarContext/SnackbarContext";
+import { useContext } from "react";
 
 export default function Login() {
+  const { setOpen, setMsg, setSeverity } = useContext(SnackbarContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setMsg("Servicio no disponible por el momento.");
+    setSeverity("error");
+    setOpen(true);
+  };
+
   return (
     <Container>
       <Grid
@@ -32,7 +43,7 @@ export default function Login() {
           >
             without
           </Typography>
-          <Box component="form">
+          <Box component="form" onSubmit={handleSubmit}>
             <Grid container rowSpacing={3}>
               <Grid item xs={12}>
                 <Typography component="h2" fontSize="24px" fontWeight="medium">

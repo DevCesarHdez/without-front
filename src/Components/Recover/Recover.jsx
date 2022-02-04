@@ -10,11 +10,24 @@ import {
   Button,
   Divider
 } from "@mui/material";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { SnackbarContext } from "../../Context/SnackbarContext/SnackbarContext";
 
 export default function Recover() {
   const [email, setEmail] = useState("");
+  const { setOpen, setMsg, setSeverity } = useContext(SnackbarContext);
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setMsg("Servicio no disponible por el momento.");
+    setSeverity("error");
+    setOpen(true);
+  };
 
   return (
     <Container>
@@ -35,7 +48,7 @@ export default function Recover() {
           >
             without
           </Typography>
-          <Box component="form">
+          <Box component="form" onSubmit={handleSubmit}>
             <Grid container rowSpacing={3}>
               <Grid item xs={12}>
                 <Typography component="h2" fontSize="24px" fontWeight="medium">
@@ -49,7 +62,7 @@ export default function Recover() {
               <Grid item xs={12}>
                 <FormControl fullWidth variant="standard">
                   <InputLabel>Correo electrónico</InputLabel>
-                  <Input type="email" value={email} />
+                  <Input type="email" value={email} onChange={handleEmail} />
                 </FormControl>
               </Grid>
               <Grid item xs={12}>
