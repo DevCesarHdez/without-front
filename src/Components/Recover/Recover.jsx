@@ -16,7 +16,7 @@ import { SnackbarContext } from "../../Context/SnackbarContext/SnackbarContext";
 
 export default function Recover() {
   const [email, setEmail] = useState("");
-  const { setOpen, setMsg, setSeverity } = useContext(SnackbarContext);
+  const { handleOpen } = useContext(SnackbarContext);
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -24,9 +24,7 @@ export default function Recover() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setMsg("Servicio no disponible por el momento.");
-    setSeverity("error");
-    setOpen(true);
+    handleOpen("Servicio no disponible por el momento.", "error");
   };
 
   return (

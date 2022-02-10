@@ -7,7 +7,9 @@ export default function SnackbarProvider(props) {
   const [open, setOpen] = useState(false);
   const [msg, setMsg] = useState("Undefined");
   const [severity, setSeverity] = useState("success");
-  const handleOpen = () => {
+  const handleOpen = (msg, severity) => {
+    setMsg(msg);
+    setSeverity(severity)
     setOpen(true);
   };
   const handleClose = () => {

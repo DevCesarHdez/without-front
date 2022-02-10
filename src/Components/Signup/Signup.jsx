@@ -19,13 +19,11 @@ export default function App() {
   const [params, setParams] = useSearchParams();
   const [id, setID] = useState(params.get("id"));
   const [email, setEmail] = useState(params.get("email"));
-  const { setOpen, setMsg, setSeverity } = useContext(SnackbarContext);
+  const { handleOpen } = useContext(SnackbarContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setMsg("Servicio no disponible por el momento.");
-    setSeverity("error");
-    setOpen(true);
+    handleOpen("Servicio no disponible por el momento.", "error");
   };
 
   return (

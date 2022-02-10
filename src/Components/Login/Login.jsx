@@ -15,13 +15,11 @@ import { SnackbarContext } from "../../Context/SnackbarContext/SnackbarContext";
 import { useContext } from "react";
 
 export default function Login() {
-  const { setOpen, setMsg, setSeverity } = useContext(SnackbarContext);
+  const { handleOpen } = useContext(SnackbarContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setMsg("Servicio no disponible por el momento.");
-    setSeverity("error");
-    setOpen(true);
+    handleOpen("Servicio no disponible por el momento.", "error");
   };
 
   return (
