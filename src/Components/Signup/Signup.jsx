@@ -17,8 +17,8 @@ import { SnackbarContext } from "../../Context/SnackbarContext/SnackbarContext";
 
 export default function App() {
   const [params, setParams] = useSearchParams();
-  const [id, setID] = useState(params.get("id"));
-  const [email, setEmail] = useState(params.get("email"));
+  const [id, setID] = useState(params.get("id") || "");
+  const [email, setEmail] = useState(params.get("email") || "");
   const { handleOpen } = useContext(SnackbarContext);
 
   const handleSubmit = (e) => {

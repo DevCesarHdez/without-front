@@ -9,16 +9,14 @@ export default function SnackbarProvider(props) {
   const [severity, setSeverity] = useState("success");
   const handleOpen = (msg, severity) => {
     setMsg(msg);
-    setSeverity(severity)
+    setSeverity(severity);
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
   };
   return (
-    <SnackbarContext.Provider
-      value={{ handleOpen, setOpen, setMsg, setSeverity }}
-    >
+    <SnackbarContext.Provider value={{ handleOpen }}>
       {props.children}
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity={severity} sx={{ width: "100%" }}>
